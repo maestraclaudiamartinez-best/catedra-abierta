@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Patrimonio Arquitectónico del Siglo XX · Cátedra Abierta</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --morado: #5B2D8E; --morado-claro: #7B3DB8;
+    --fuchia: #E8007A; --fuchia-suave: #F5C0DC;
+    --amarillo: #F5C518;
+    --fondo: #FAF7F2; --fondo-2: #F2EDE4;
+    --texto: #1A1A1A; --texto-suave: #5A5450;
+    --borde: #E0D8CC; --blanco: #FFFFFF;
+  }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--fondo); color: var(--texto);
+    font-size: 16px; line-height: 1.6;
+    -webkit-user-select: none; -moz-user-select: none; user-select: none;
+  }
+  img { pointer-events: none; -webkit-user-drag: none; }
+
+  nav {
+    position: sticky; top: 0; z-index: 100;
+    background: var(--fondo); border-bottom: 1.5px solid var(--borde);
+    padding: 0 2rem; display: flex; align-items: center;
+    justify-content: space-between; height: 60px;
+  }
+  .nav-logo { font-family: 'Playfair Display', serif; font-size: 18px; font-weight: 700; color: var(--morado); text-decoration: none; }
+  .nav-logo span { color: var(--fuchia); }
+  .nav-back { font-size: 13px; font-weight: 500; color: var(--texto-suave); text-decoration: none; display: flex; align-items: center; gap: 6px; }
+  .nav-back:hover { color: var(--morado); }
+
+  /* HERO MATERIA */
+  .materia-hero {
+    background: var(--morado); padding: 4rem 2rem 3rem;
+    position: relative; overflow: hidden;
+  }
+  .materia-hero::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: repeating-linear-gradient(
+      -45deg, transparent, transparent 30px,
+      rgba(255,255,255,0.02) 30px, rgba(255,255,255,0.02) 31px
+    );
+  }
+  .materia-hero-inner { max-width: 900px; margin: 0 auto; position: relative; z-index: 1; }
+  .materia-breadcrumb { font-size: 12px; color: rgba(255,255,255,0.5); margin-bottom: 1rem; }
+  .materia-breadcrumb a { color: rgba(255,255,255,0.5); text-decoration: none; }
+  .materia-breadcrumb a:hover { color: var(--fuchia-suave); }
+  .materia-inst-badge {
+    display: inline-block; font-size: 11px; font-weight: 500;
+    letter-spacing: 0.08em; text-transform: uppercase;
+    background: var(--fuchia); color: white;
+    padding: 4px 12px; border-radius: 20px; margin-bottom: 1rem;
+  }
+  .materia-hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.8rem, 4vw, 2.8rem);
+    font-weight: 900; color: white; line-height: 1.1;
+    letter-spacing: -0.02em; margin-bottom: 0.75rem;
+  }
+  .materia-hero h1 span { color: var(--fuchia-suave); }
+  .materia-hero-sub { font-size: 15px; color: rgba(255,255,255,0.65); max-width: 600px; }
+  .materia-meta {
+    display: flex; gap: 1.5rem; flex-wrap: wrap;
+    margin-top: 2rem; padding-top: 1.5rem;
+    border-top: 1px solid rgba(255,255,255,0.15);
+  }
+  .materia-meta-item { font-size: 12px; color: rgba(255,255,255,0.55); }
+  .materia-meta-item strong { display: block; color: white; font-size: 14px; font-weight: 500; }
+
+  /* LAYOUT CONTENIDO */
+  .contenido-wrap { max-width: 900px; margin: 0 auto; padding: 3rem 2rem; display: grid; grid-template-columns: 220px 1fr; gap: 3rem; align-items: start; }
+
+  /* SIDEBAR */
+  .sidebar { position: sticky; top: 80px; }
+  .sidebar-title { font-size: 11px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--texto-suave); margin-bottom: 0.75rem; }
+  .sidebar-nav { list-style: none; }
+  .sidebar-nav li { margin-bottom: 2px; }
+  .sidebar-nav a {
+    display: block; font-size: 13px; padding: 6px 10px; border-radius: 8px;
+    color: var(--texto-suave); text-decoration: none; transition: all 0.15s;
+    border-left: 2px solid transparent;
+  }
+  .sidebar-nav a:hover { color: var(--morado); background: var(--fondo-2); border-left-color: var(--morado); }
+  .sidebar-nav a.active { color: var(--morado); font-weight: 500; border-left-color: var(--fuchia); background: var(--fondo-2); }
+
+  /* UNIDADES */
+  .unidad { margin-bottom: 3rem; }
+  .unidad-header {
+    display: flex; align-items: center; gap: 12px;
+    margin-bottom: 1.25rem; cursor: pointer;
+  }
+  .unidad-num {
+    width: 36px; height: 36px; border-radius: 10px;
+    background: var(--morado); color: white;
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Playfair Display', serif; font-size: 16px; font-weight: 700;
+    flex-shrink: 0;
+  }
+  .unidad-nombre {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.2rem; font-weight: 700; color: var(--texto);
+  }
+  .unidad-toggle { margin-left: auto; font-size: 18px; color: var(--texto-suave); transition: transform 0.2s; }
+  .unidad.open .unidad-toggle { transform: rotate(180deg); }
+
+  .unidad-body { display: none; }
+  .unidad.open .unidad-body { display: block; }
+
+  .clase-lista { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+  .clase-item {
+    background: var(--blanco); border: 1.5px solid var(--borde);
+    border-radius: 12px; padding: 1rem 1.25rem;
+    display: flex; align-items: flex-start; gap: 12px;
+    cursor: pointer; transition: border-color 0.15s;
+  }
+  .clase-item:hover { border-color: var(--morado); }
+  .clase-item.expandida { border-color: var(--morado); }
+  .clase-num-badge {
+    font-size: 10px; font-weight: 500; letter-spacing: 0.06em;
+    color: var(--fuchia); background: var(--fuchia-suave);
+    padding: 3px 8px; border-radius: 8px; white-space: nowrap; margin-top: 2px;
+  }
+  .clase-info { flex: 1; }
+  .clase-titulo { font-size: 14px; font-weight: 500; color: var(--texto); margin-bottom: 3px; }
+  .clase-desc { font-size: 12px; color: var(--texto-suave); line-height: 1.5; }
+  .clase-temas { display: none; margin-top: 10px; padding-top: 10px; border-top: 1px solid var(--borde); }
+  .clase-item.expandida .clase-temas { display: block; }
+  .clase-temas ul { list-style: none; display: flex; flex-wrap: wrap; gap: 6px; }
+  .clase-temas ul li {
+    font-size: 11px; padding: 3px 10px; border-radius: 10px;
+    background: var(--fondo-2); color: var(--texto-suave); border: 1px solid var(--borde);
+  }
+
+  /* FOOTER */
+  footer { background: var(--morado); padding: 2.5rem 2rem; text-align: center; }
+  footer .footer-logo { font-family: 'Playfair Display', serif; font-size: 1.2rem; font-weight: 900; color: white; }
+  footer .footer-logo span { color: var(--fuchia-suave); }
+  footer p { font-size: 12px; color: rgba(255,255,255,0.5); margin-top: 6px; }
+
+  @media (max-width: 680px) {
+    .contenido-wrap { grid-template-columns: 1fr; }
+    .sidebar { position: static; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo">Cátedra <span>Abierta</span></a>
+  <a href="index.html" class="nav-back">← Todas las materias</a>
+</nav>
+
+<div class="materia-hero">
+  <div class="materia-hero-inner">
+    <div class="materia-breadcrumb"><a href="index.html">Inicio</a> / Materias / UVM Arquitectura</div>
+    <div class="materia-inst-badge">UVM · Arquitectura</div>
+    <h1>Patrimonio Arquitectónico <span>del Siglo XX</span></h1>
+    <p class="materia-hero-sub">De la revolución material a la conservación crítica. Un recorrido por los maestros, movimientos y dilemas del patrimonio moderno en México.</p>
+    <div class="materia-meta">
+      <div class="materia-meta-item"><strong>Mtra. Claudia A. Martínez Díaz</strong></div>
+      <div class="materia-meta-item"></div>
+      <div class="materia-meta-item"></div>
+      <div class="materia-meta-item"><strong>UAQ + UVM</strong>Instituciones</div>
+    </div>
+  </div>
+</div>
+
+<div class="contenido-wrap">
+
+  <aside class="sidebar">
+    <div class="sidebar-title">Unidades</div>
+    <ul class="sidebar-nav">
+      <li><a href="#u1" class="active">I · Materiales y modernidad</a></li>
+      <li><a href="#u2">II · El funcionalismo radical</a></li>
+      <li><a href="#u3">III · Arq. emocional y brutalismo</a></li>
+      <li><a href="#u4">IV · Conservación crítica</a></li>
+    </ul>
+  </aside>
+
+  <main>
+
+    <div class="unidad open" id="u1">
+      <div class="unidad-header" onclick="toggleUnidad(this.parentElement)">
+        <div class="unidad-num">I</div>
+        <div class="unidad-nombre">Materiales y modernidad</div>
+        <span class="unidad-toggle">↓</span>
+      </div>
+      <div class="unidad-body">
+        <ul class="clase-lista">
+          <li class="clase-item" onclick="toggleClase(this)">
+            <span class="clase-num-badge">Clase 15</span>
+            <div class="clase-info">
+              <div class="clase-titulo">La revolución de los materiales</div>
+              <div class="clase-desc">Los tres materiales que transformaron la arquitectura del siglo XX.</div>
+              <div class="clase-temas">
+                <ul>
+                  <li>Hormigón armado</li><li>Acero estructural</li><li>Vidrio plano</li>
+                  <li>Planta libre</li><li>Fachada cortina</li>
+                </ul>
+              </div>
+            </div>
+          </li>
+          <li class="clase-item" onclick="toggleClase(this)">
+            <span class="clase-num-badge">Clase 16</span>
+            <div class="clase-info">
+              <div class="clase-titulo">Le Corbusier y los cinco puntos</div>
+              <div class="clase-desc">La Villa Savoye como manifiesto físico de la nueva arquitectura.</div>
+              <div class="clase-temas">
+                <ul>
+                  <li>Cinco puntos</li><li>Villa Savoye</li><li>Carbonatación</li>
+                  <li>Conservación del hormigón primitivo</li>
+                </ul>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="unidad open" id="u2">
+      <div class="unidad-header" onclick="toggleUnidad(this.parentElement)">
+        <div class="unidad-num">II</div>
+        <div class="unidad-nombre">El funcionalismo radical en México</div>
+        <span class="unidad-toggle">↓</span>
+      </div>
+      <div class="unidad-body">
+        <ul class="clase-lista">
+          <li class="clase-item" onclick="toggleClase(this)">
+            <span class="clase-num-badge">Clase 17</span>
+            <div class="clase-info">
+              <div class="clase-titulo">El Patrimonio del Siglo XX: de la Revolución Material a la Conservación Crítica</div>
+              <div class="clase-desc">Juan O'Gorman, Mario Pani, ICA. El Estado posrevolucionario y la arquitectura como ingeniería social.</div>
+              <div class="clase-temas">
+                <ul>
+                  <li>O'Gorman · E = U/(C×T)</li><li>Casas Estudio Rivera-Kahlo</li>
+                  <li>Escuelas SEP</li><li>Biblioteca Central UNAM</li>
+                  <li>Mario Pani · CUPA</li><li>Cimbras deslizantes</li>
+                  <li>Trabes pretensadas</li><li>Integración plástica</li>
+                </ul>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="unidad open" id="u3">
+      <div class="unidad-header" onclick="toggleUnidad(this.parentElement)">
+        <div class="unidad-num">III</div>
+        <div class="unidad-nombre">Arquitectura emocional y brutalismo</div>
+        <span class="unidad-toggle">↓</span>
+      </div>
+      <div class="unidad-body">
+        <ul class="clase-lista">
+          <li class="clase-item" onclick="toggleClase(this)">
+            <span class="clase-num-badge">Clase 17 cont.</span>
+            <div class="clase-info">
+              <div class="clase-titulo">Luis Barragán y la fenomenología del espacio</div>
+              <div class="clase-desc">Arquitectura emocional. Opacidad tectónica, luz como material, agua y vegetación como dispositivos.</div>
+              <div class="clase-temas">
+                <ul>
+                  <li>Casa-Estudio Barragán</li><li>Torres de Satélite</li>
+                  <li>Mathias Goeritz</li><li>Escultura habitable</li>
+                  <li>Patrimonio colonial reinterpretado</li>
+                </ul>
+              </div>
+            </div>
+          </li>
+          <li class="clase-item" onclick="toggleClase(this)">
+            <span class="clase-num-badge">Clase 17 cont.</span>
+            <div class="clase-info">
+              <div class="clase-titulo">González de León y Zabludovsky · Brutalismo monumental</div>
+              <div class="clase-desc">Concreto con grano de mármol cincelado a mano. Monumentalidad que evoca Mesoamérica.</div>
+              <div class="clase-temas">
+                <ul>
+                  <li>COLMEX</li><li>Museo Rufino Tamayo</li>
+                  <li>Taludes mesoamericanos</li><li>Tectónica de superficie</li>
+                </ul>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="unidad open" id="u4">
+      <div class="unidad-header" onclick="toggleUnidad(this.parentElement)">
+        <div class="unidad-num">IV</div>
+        <div class="unidad-nombre">Conservación crítica y amenazas contemporáneas</div>
+        <span class="unidad-toggle">↓</span>
+      </div>
+      <div class="unidad-body">
+        <ul class="clase-lista">
+          <li class="clase-item" onclick="toggleClase(this)">
+            <span class="clase-num-badge">Clase 17 cont.</span>
+            <div class="clase-info">
+              <div class="clase-titulo">Los grandes dilemas teóricos de la conservación</div>
+              <div class="clase-desc">Pátina, obsolescencia tecnológica, autenticidad vs. función. Por qué el siglo XX rompe con Ruskin.</div>
+              <div class="clase-temas">
+                <ul>
+                  <li>Pátina del tiempo</li><li>Obsolescencia tecnológica</li>
+                  <li>Autenticidad del diseño vs. materia</li><li>Conservación crítica</li>
+                </ul>
+              </div>
+            </div>
+          </li>
+          <li class="clase-item" onclick="toggleClase(this)">
+            <span class="clase-num-badge">Clase 17 cont.</span>
+            <div class="clase-info">
+              <div class="clase-titulo">Vulnerabilidad estructural, marco jurídico y destrucción</div>
+              <div class="clase-desc">Sismos de 1985 y 2017, Centro SCOP, el "tigre de papel" del INBAL y la especulación inmobiliaria.</div>
+              <div class="clase-temas">
+                <ul>
+                  <li>Zona III lacustre</li><li>Ag &gt; 0.40g</li>
+                  <li>Centro SCOP</li><li>LFMZAAH 1972</li>
+                  <li>INBAL vs. amparo</li><li>Gentrificación</li>
+                </ul>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+  </main>
+</div>
+
+<footer>
+  <div class="footer-logo">Cátedra <span>Abierta</span></div>
+  <p>Mtra. Claudia A. Martínez Díaz · © 2026 · Contenido protegido</p>
+</footer>
+
+<script>
+  document.addEventListener('contextmenu', e => e.preventDefault());
+  document.addEventListener('keydown', e => {
+    if ((e.ctrlKey || e.metaKey) && ['s','p','u','a'].includes(e.key.toLowerCase())) e.preventDefault();
+    if (e.key === 'F12') e.preventDefault();
+  });
+  document.addEventListener('dragstart', e => e.preventDefault());
+
+  function toggleUnidad(el) {
+    el.classList.toggle('open');
+  }
+  function toggleClase(el) {
+    el.classList.toggle('expandida');
+  }
+</script>
+
+</body>
+</html>
