@@ -1,128 +1,413 @@
-Cátedra Abierta
-	•	Servicios
-	•	Metodologías
-	•	Material
-	•	Videos
-	•	Podcast
-	•	Ensayos
-	•	Trayectoria
-	•	Contacto
-CLAUDIA A. MARTÍNEZ DÍAZ
-Diseñadora, mercadóloga, publicista y creadora de metodologías
-Investigo, diseño, enseño y genero conocimiento que transforma organizaciones y personas.
-Contáctame
-Ver servicios
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Cátedra Abierta · Claudia A. Martínez Díaz</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --morado: #5B2D8E; --morado-claro: #7B3DB8;
+    --fuchia: #E8007A; --fuchia-suave: #F5C0DC;
+    --fondo: #FAF7F2; --fondo-2: #F2EDE4;
+    --texto: #1A1A1A; --texto-suave: #5A5450;
+    --borde: #E0D8CC; --blanco: #FFFFFF;
+  }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'DM Sans', sans-serif; background-color: var(--fondo); color: var(--texto); font-size: 16px; line-height: 1.7; }
 
-CM
-Mtra. Claudia A.
-Martínez Díaz
-UAQ · UVM · M&D High Strategy Group
-Signum Intelligence Unit
+  /* NAV */
+  nav {
+    position: sticky; top: 0; z-index: 100;
+    background: rgba(250,247,242,0.95); backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--borde);
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0 40px; height: 60px;
+  }
+  .nav-logo { font-family: 'Playfair Display', serif; font-weight: 900; font-size: 1.1rem; color: var(--morado); text-decoration: none; }
+  .nav-links { display: flex; gap: 28px; list-style: none; }
+  .nav-links a { text-decoration: none; font-size: 13px; font-weight: 500; color: var(--texto-suave); transition: color 0.2s; }
+  .nav-links a:hover { color: var(--morado); }
 
-¿QUÉ HAGO?
-Servicios
-Haz clic en cada servicio para saber más.
-🧭
-Consultoría estratégica
-Estrategia de comunicación, identidad y posicionamiento para organizaciones.
-🎓
-Docencia universitaria
-Cátedra en diseño, semiótica, patrimonio e investigación UX en UAQ y UVM.
-🎤
-Conferencias y talleres
-Charlas y talleres sobre IA, diseño, semiótica y cultura visual mexicana.
-🤖
-IA aplicada
-Implementación de inteligencia artificial en procesos educativos y creativos.
-🔬
-Investigación
-Investigación en semiótica, diseño, patrimonio y cultura visual.
+  /* HERO */
+  .hero {
+    min-height: 100vh; display: grid; grid-template-columns: 1fr 1fr;
+    align-items: center; padding: 80px 80px 80px 80px; gap: 60px;
+  }
+  .hero-texto h1 {
+    font-family: 'Playfair Display', serif; font-weight: 900;
+    font-size: clamp(2.4rem, 4vw, 3.8rem); line-height: 1.1;
+    color: var(--texto); margin-bottom: 20px;
+  }
+  .hero-texto h1 span { color: var(--morado); }
+  .hero-texto p { font-size: 1.1rem; color: var(--texto-suave); margin-bottom: 36px; max-width: 480px; }
+  .hero-btns { display: flex; gap: 16px; flex-wrap: wrap; }
+  .btn-primario {
+    background: var(--morado); color: #FFF; padding: 14px 28px;
+    border-radius: 6px; text-decoration: none; font-weight: 500;
+    font-size: 14px; transition: background 0.2s;
+  }
+  .btn-primario:hover { background: var(--morado-claro); }
+  .btn-secundario {
+    border: 2px solid var(--morado); color: var(--morado); padding: 12px 28px;
+    border-radius: 6px; text-decoration: none; font-weight: 500;
+    font-size: 14px; transition: all 0.2s;
+  }
+  .btn-secundario:hover { background: var(--morado); color: #FFF; }
+  .hero-tarjeta {
+    background: var(--blanco); border: 1px solid var(--borde);
+    border-radius: 16px; padding: 40px; box-shadow: 0 8px 40px rgba(91,45,142,0.08);
+  }
+  .hero-avatar {
+    width: 72px; height: 72px; border-radius: 50%;
+    background: linear-gradient(135deg, var(--morado), var(--fuchia));
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Playfair Display', serif; font-weight: 900;
+    font-size: 1.5rem; color: #FFF; margin-bottom: 20px;
+  }
+  .hero-tarjeta h2 { font-family: 'Playfair Display', serif; font-size: 1.4rem; font-weight: 700; color: var(--texto); margin-bottom: 4px; }
+  .hero-tarjeta .cargo { font-size: 13px; color: var(--morado); font-weight: 500; margin-bottom: 16px; }
+  .hero-tarjeta .instituciones { font-size: 13px; color: var(--texto-suave); line-height: 1.8; }
 
-LO QUE HE CREADO
-Metodologías
-⚗️
-Metodologías propias en construcción
-Marcos de trabajo y metodologías originales desarrolladas a lo largo de años de práctica en diseño, semiótica e investigación. Próximamente disponibles aquí.
-MUY PRONTO
+  /* SECCIONES */
+  section { padding: 100px 80px; }
+  section:nth-child(even) { background: var(--fondo-2); }
+  .seccion-eyebrow { font-size: 11px; font-weight: 600; letter-spacing: 3px; text-transform: uppercase; color: var(--fuchia); margin-bottom: 12px; }
+  .seccion-titulo { font-family: 'Playfair Display', serif; font-size: clamp(1.8rem, 3vw, 2.6rem); font-weight: 900; color: var(--texto); margin-bottom: 48px; }
+  .seccion-intro { font-size: 1.05rem; color: var(--texto-suave); max-width: 600px; margin-bottom: 48px; }
 
-REPOSITORIO ACADÉMICO
-Material docente
-Documentos, recursos y materiales de mis cursos universitarios.
-🏛️
-UVM · ARQUITECTURA
-Patrimonio Arquitectónico del Siglo XX
-De la revolución material a la conservación crítica. Maestros, movimientos y dilemas contemporáneos.
-→
-🔤
-UAQ · DISEÑO
-Semiótica del Diseño
-Signos, códigos y retórica de la imagen. Barthes, Peirce y Groupe µ aplicados al diseño visual.
-En construcción
-📐
-UVM · ARQUITECTURA
-Geometría Descriptiva
-Verdadera magnitud, abatimiento, proyección ortogonal y perspectiva cónica.
-En construcción
+  /* SERVICIOS */
+  .servicios-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 24px; }
+  .servicio-card {
+    background: var(--blanco); border: 1px solid var(--borde);
+    border-radius: 12px; padding: 28px; cursor: pointer;
+    transition: box-shadow 0.2s, transform 0.2s; position: relative; overflow: hidden;
+  }
+  .servicio-card:hover { box-shadow: 0 8px 32px rgba(91,45,142,0.12); transform: translateY(-2px); }
+  .servicio-card::before { content: ''; position: absolute; top: 0; left: 0; width: 4px; height: 100%; background: var(--morado); }
+  .servicio-icono { font-size: 2rem; margin-bottom: 14px; }
+  .servicio-card h3 { font-family: 'Playfair Display', serif; font-size: 1.1rem; font-weight: 700; color: var(--texto); margin-bottom: 8px; }
+  .servicio-card p { font-size: 14px; color: var(--texto-suave); }
 
-CANAL YOUTUBE
-Hablemos de… con Claudia Martínez
-Conversaciones sobre diseño, cultura, educación y todo lo que vale la pena pensar en voz alta.
-Hablemos de… con Claudia Martínez
-▶️
-Más videos próximamente
-12 episodios disponibles en el canal.
-VER CANAL COMPLETO →
+  /* METODOLOGÍAS */
+  .metodologia-box {
+    background: var(--blanco); border: 1px solid var(--borde);
+    border-radius: 12px; padding: 48px; text-align: center; max-width: 600px;
+  }
+  .metodologia-box .icono { font-size: 3rem; margin-bottom: 20px; }
+  .metodologia-box h3 { font-family: 'Playfair Display', serif; font-size: 1.3rem; font-weight: 700; color: var(--texto); margin-bottom: 12px; }
+  .metodologia-box p { font-size: 14.5px; color: var(--texto-suave); margin-bottom: 20px; }
+  .badge { display: inline-block; background: var(--fuchia-suave); color: var(--fuchia); font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; padding: 6px 14px; border-radius: 100px; }
 
-AUDIO
-Podcast
-🎙️
-Próximamente en audio
-Conversaciones profundas sobre diseño, semiótica, inteligencia artificial y cultura visual mexicana. En producción.
-EN PRODUCCIÓN
+  /* MATERIAL DOCENTE */
+  .material-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 24px; }
+  .material-card {
+    background: var(--blanco); border: 1px solid var(--borde);
+    border-radius: 12px; overflow: hidden;
+  }
+  .material-header { background: var(--morado); color: #FFF; padding: 16px 20px; }
+  .material-header .etiqueta { font-size: 10px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; color: rgba(255,255,255,0.65); margin-bottom: 4px; }
+  .material-header h3 { font-family: 'Playfair Display', serif; font-size: 1.05rem; font-weight: 700; }
+  .material-body { padding: 20px; }
+  .material-body p { font-size: 13.5px; color: var(--texto-suave); margin-bottom: 14px; }
+  .material-link { display: inline-flex; align-items: center; gap: 6px; font-size: 13px; font-weight: 600; color: var(--morado); text-decoration: none; }
+  .material-link:hover { color: var(--fuchia); }
+  .material-badge { display: inline-block; background: var(--fondo-2); color: var(--texto-suave); font-size: 11px; padding: 4px 10px; border-radius: 100px; }
 
-ESCRITURA
-Ensayos
-✍️
-Ideas que merecen más de 280 caracteres
-Reflexiones, análisis y ensayos sobre diseño, educación, inteligencia artificial y todo lo que no cabe en una presentación. Próximamente.
-PRÓXIMAMENTE
+  /* VIDEOS */
+  .video-box {
+    background: var(--blanco); border: 1px solid var(--borde);
+    border-radius: 12px; padding: 40px; display: flex;
+    gap: 40px; align-items: center; flex-wrap: wrap;
+  }
+  .video-info h3 { font-family: 'Playfair Display', serif; font-size: 1.3rem; font-weight: 700; color: var(--texto); margin-bottom: 8px; }
+  .video-info p { font-size: 14.5px; color: var(--texto-suave); margin-bottom: 20px; }
+  .video-play { font-size: 3rem; }
+  .video-nota { font-size: 13px; color: var(--texto-suave); margin-top: 12px; }
+  .video-cta { display: inline-block; background: var(--fuchia); color: #FFF; padding: 12px 24px; border-radius: 6px; text-decoration: none; font-weight: 500; font-size: 13px; }
+  .video-cta:hover { opacity: 0.9; }
 
-RECORRIDO
-Trayectoria
-Haz clic en cada etapa para saber más.
-Presente
-Directora General · M&D High Strategy Group
-CEO · Signum Intelligence Unit
-Presente
-Docente universitaria
-UAQ · UVM
-Formación
-Maestría en Ciencias y Artes para el Diseño
-UAM Xochimilco · Ciudad de México
-Creación
-IntelIA — Plataforma de aprendizaje con IA
-Proyecto de innovación educativa · UVM
-Contenido
-IA para Creativos y No Creativos
-Canal YouTube · Comunidad digital
+  /* PODCAST */
+  .podcast-box {
+    background: var(--blanco); border: 1px solid var(--borde);
+    border-radius: 12px; padding: 48px; max-width: 560px;
+    display: flex; flex-direction: column; align-items: flex-start; gap: 16px;
+  }
+  .podcast-box .icono { font-size: 2.5rem; }
+  .podcast-box h3 { font-family: 'Playfair Display', serif; font-size: 1.2rem; font-weight: 700; color: var(--texto); }
+  .podcast-box p { font-size: 14px; color: var(--texto-suave); }
 
-HABLEMOS
-Contacto
-¿Tienes un proyecto en mente?
-Estoy disponible para consultoría, conferencias, talleres, colaboraciones académicas y proyectos de IA. Escríbeme y con gusto platicamos.
-✉️
-maestraclaudiamartinez@gmail.com
-💼
-linkedin.com/in/claudiamtzd
-▶️
-Canal YouTube
-CMD
-Claudia A.
-Martínez Díaz
-Diseñadora · Mercadóloga · Publicista
-Investigadora · Docente · Estratega
-Cátedra Abierta
-Claudia A. Martínez Díaz
+  /* ENSAYOS */
+  .ensayos-box {
+    background: var(--blanco); border: 1px solid var(--borde);
+    border-radius: 12px; padding: 48px; max-width: 560px;
+  }
+  .ensayos-box .icono { font-size: 2.5rem; margin-bottom: 16px; }
+  .ensayos-box h3 { font-family: 'Playfair Display', serif; font-size: 1.2rem; font-weight: 700; color: var(--texto); margin-bottom: 8px; }
+  .ensayos-box p { font-size: 14px; color: var(--texto-suave); margin-bottom: 16px; }
 
-UAQ · UVM · M&D High Strategy Group · Signum Intelligence Unit
-© 2026 · Todos los derechos reservados · Contenido protegido
+  /* TRAYECTORIA */
+  .timeline { position: relative; padding-left: 32px; max-width: 700px; }
+  .timeline::before { content: ''; position: absolute; left: 8px; top: 0; bottom: 0; width: 2px; background: var(--borde); }
+  .timeline-item { position: relative; margin-bottom: 40px; cursor: pointer; }
+  .timeline-item::before { content: ''; position: absolute; left: -28px; top: 6px; width: 12px; height: 12px; border-radius: 50%; background: var(--morado); border: 3px solid var(--fondo); }
+  .timeline-etiqueta { font-size: 11px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; color: var(--fuchia); margin-bottom: 4px; }
+  .timeline-item h3 { font-family: 'Playfair Display', serif; font-size: 1.05rem; font-weight: 700; color: var(--texto); margin-bottom: 4px; }
+  .timeline-item p { font-size: 13.5px; color: var(--texto-suave); }
+
+  /* CONTACTO */
+  .contacto-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: start; }
+  .contacto-intro p { font-size: 1rem; color: var(--texto-suave); margin-bottom: 32px; }
+  .contacto-dato { display: flex; gap: 12px; align-items: center; margin-bottom: 20px; font-size: 14.5px; color: var(--texto-suave); }
+  .contacto-dato a { color: var(--morado); text-decoration: none; font-weight: 500; }
+  .contacto-dato a:hover { color: var(--fuchia); }
+
+  /* FOOTER */
+  footer {
+    background: var(--texto); color: rgba(255,255,255,0.5);
+    padding: 48px 80px; display: flex;
+    justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 20px;
+  }
+  .footer-marca h4 { font-family: 'Playfair Display', serif; font-size: 1.1rem; color: #FFF; margin-bottom: 4px; }
+  .footer-marca p { font-size: 12px; }
+  .footer-inst { font-size: 12px; text-align: right; line-height: 1.8; }
+  .footer-copy { width: 100%; font-size: 12px; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 20px; margin-top: 8px; }
+
+  @media (max-width: 768px) {
+    nav { padding: 0 20px; }
+    .nav-links { display: none; }
+    .hero { grid-template-columns: 1fr; padding: 60px 24px; min-height: auto; }
+    section { padding: 70px 24px; }
+    .contacto-grid { grid-template-columns: 1fr; }
+    footer { padding: 40px 24px; }
+    .footer-inst { text-align: left; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-logo">Cátedra Abierta</a>
+  <ul class="nav-links">
+    <li><a href="#servicios">Servicios</a></li>
+    <li><a href="#metodologias">Metodologías</a></li>
+    <li><a href="#material">Material</a></li>
+    <li><a href="#videos">Videos</a></li>
+    <li><a href="#podcast">Podcast</a></li>
+    <li><a href="#ensayos">Ensayos</a></li>
+    <li><a href="#trayectoria">Trayectoria</a></li>
+    <li><a href="#contacto">Contacto</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero" style="padding-top:80px;">
+  <div class="hero-texto">
+    <h1>CLAUDIA A. <span>MARTÍNEZ DÍAZ</span></h1>
+    <p>Diseñadora, mercadóloga, publicista y creadora de metodologías</p>
+    <p style="margin-top:-16px;margin-bottom:36px;">Investigo, diseño, enseño y genero conocimiento que transforma organizaciones y personas.</p>
+    <div class="hero-btns">
+      <a href="#contacto" class="btn-primario">Contáctame</a>
+      <a href="#servicios" class="btn-secundario">Ver servicios</a>
+    </div>
+  </div>
+  <div class="hero-tarjeta">
+    <div class="hero-avatar">CM</div>
+    <h2>Mtra. Claudia A.<br>Martínez Díaz</h2>
+    <p class="cargo">Directora General · M&amp;D High Strategy Group<br>CEO · Signum Intelligence Unit</p>
+    <p class="instituciones">UAQ · UVM · M&amp;D High Strategy Group<br>Signum Intelligence Unit</p>
+  </div>
+</section>
+
+<!-- SERVICIOS -->
+<section id="servicios">
+  <p class="seccion-eyebrow">¿Qué hago?</p>
+  <h2 class="seccion-titulo">Servicios</h2>
+  <p class="seccion-intro">Haz clic en cada servicio para saber más.</p>
+  <div class="servicios-grid">
+    <div class="servicio-card">
+      <div class="servicio-icono">🧭</div>
+      <h3>Consultoría estratégica</h3>
+      <p>Estrategia de comunicación, identidad y posicionamiento para organizaciones.</p>
+    </div>
+    <div class="servicio-card">
+      <div class="servicio-icono">🎓</div>
+      <h3>Docencia universitaria</h3>
+      <p>Cátedra en diseño, semiótica, patrimonio e investigación UX en UAQ y UVM.</p>
+    </div>
+    <div class="servicio-card">
+      <div class="servicio-icono">🎤</div>
+      <h3>Conferencias y talleres</h3>
+      <p>Charlas y talleres sobre IA, diseño, semiótica y cultura visual mexicana.</p>
+    </div>
+    <div class="servicio-card">
+      <div class="servicio-icono">🤖</div>
+      <h3>IA aplicada</h3>
+      <p>Implementación de inteligencia artificial en procesos educativos y creativos.</p>
+    </div>
+    <div class="servicio-card">
+      <div class="servicio-icono">🔬</div>
+      <h3>Investigación</h3>
+      <p>Investigación en semiótica, diseño, patrimonio y cultura visual.</p>
+    </div>
+  </div>
+</section>
+
+<!-- METODOLOGÍAS -->
+<section id="metodologias">
+  <p class="seccion-eyebrow">Lo que he creado</p>
+  <h2 class="seccion-titulo">Metodologías</h2>
+  <div class="metodologia-box">
+    <div class="icono">⚗️</div>
+    <h3>Metodologías propias en construcción</h3>
+    <p>Marcos de trabajo y metodologías originales desarrolladas a lo largo de años de práctica en diseño, semiótica e investigación. Próximamente disponibles aquí.</p>
+    <span class="badge">Muy pronto</span>
+  </div>
+</section>
+
+<!-- MATERIAL DOCENTE -->
+<section id="material">
+  <p class="seccion-eyebrow">Repositorio académico</p>
+  <h2 class="seccion-titulo">Material docente</h2>
+  <p class="seccion-intro">Documentos, recursos y materiales de mis cursos universitarios.</p>
+  <div class="material-grid">
+    <div class="material-card">
+      <div class="material-header">
+        <p class="etiqueta">🏛️ UVM · Arquitectura</p>
+        <h3>Patrimonio Arquitectónico del Siglo XX</h3>
+      </div>
+      <div class="material-body">
+        <p>De la revolución material a la conservación crítica. Maestros, movimientos y dilemas contemporáneos.</p>
+        <a href="patrimonio.html" class="material-link">→ Ver material</a>
+      </div>
+    </div>
+    <div class="material-card">
+      <div class="material-header">
+        <p class="etiqueta">🔤 UAQ · Diseño</p>
+        <h3>Semiótica del Diseño</h3>
+      </div>
+      <div class="material-body">
+        <p>Signos, códigos y retórica de la imagen. Barthes, Peirce y Groupe µ aplicados al diseño visual.</p>
+        <span class="material-badge">En construcción</span>
+      </div>
+    </div>
+    <div class="material-card">
+      <div class="material-header">
+        <p class="etiqueta">📐 UVM · Arquitectura</p>
+        <h3>Geometría Descriptiva</h3>
+      </div>
+      <div class="material-body">
+        <p>Verdadera magnitud, abatimiento, proyección ortogonal y perspectiva cónica.</p>
+        <span class="material-badge">En construcción</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- VIDEOS -->
+<section id="videos">
+  <p class="seccion-eyebrow">Canal YouTube</p>
+  <h2 class="seccion-titulo">Hablemos de… con Claudia Martínez</h2>
+  <div class="video-box">
+    <div class="video-play">▶️</div>
+    <div class="video-info">
+      <h3>Hablemos de… con Claudia Martínez</h3>
+      <p>Conversaciones sobre diseño, cultura, educación y todo lo que vale la pena pensar en voz alta.</p>
+      <a href="https://www.youtube.com/@HablemosdeconClaudiaMartinez" target="_blank" class="video-cta">VER CANAL COMPLETO →</a>
+      <p class="video-nota">▶️ Más videos próximamente · 12 episodios disponibles en el canal.</p>
+    </div>
+  </div>
+</section>
+
+<!-- PODCAST -->
+<section id="podcast">
+  <p class="seccion-eyebrow">Audio</p>
+  <h2 class="seccion-titulo">Podcast</h2>
+  <div class="podcast-box">
+    <div class="icono">🎙️</div>
+    <h3>Próximamente en audio</h3>
+    <p>Conversaciones profundas sobre diseño, semiótica, inteligencia artificial y cultura visual mexicana. En producción.</p>
+    <span class="badge">En producción</span>
+  </div>
+</section>
+
+<!-- ENSAYOS -->
+<section id="ensayos">
+  <p class="seccion-eyebrow">Escritura</p>
+  <h2 class="seccion-titulo">Ensayos</h2>
+  <div class="ensayos-box">
+    <div class="icono">✍️</div>
+    <h3>Ideas que merecen más de 280 caracteres</h3>
+    <p>Reflexiones, análisis y ensayos sobre diseño, educación, inteligencia artificial y todo lo que no cabe en una presentación. Próximamente.</p>
+    <span class="badge">Próximamente</span>
+  </div>
+</section>
+
+<!-- TRAYECTORIA -->
+<section id="trayectoria">
+  <p class="seccion-eyebrow">Recorrido</p>
+  <h2 class="seccion-titulo">Trayectoria</h2>
+  <p class="seccion-intro">Haz clic en cada etapa para saber más.</p>
+  <div class="timeline">
+    <div class="timeline-item">
+      <p class="timeline-etiqueta">Presente</p>
+      <h3>Directora General · M&amp;D High Strategy Group</h3>
+      <p>CEO · Signum Intelligence Unit</p>
+    </div>
+    <div class="timeline-item">
+      <p class="timeline-etiqueta">Presente</p>
+      <h3>Docente universitaria</h3>
+      <p>UAQ · UVM</p>
+    </div>
+    <div class="timeline-item">
+      <p class="timeline-etiqueta">Formación</p>
+      <h3>Maestría en Ciencias y Artes para el Diseño</h3>
+      <p>UAM Xochimilco · Ciudad de México</p>
+    </div>
+    <div class="timeline-item">
+      <p class="timeline-etiqueta">Creación</p>
+      <h3>IntelIA — Plataforma de aprendizaje con IA</h3>
+      <p>Proyecto de innovación educativa · UVM</p>
+    </div>
+    <div class="timeline-item">
+      <p class="timeline-etiqueta">Contenido</p>
+      <h3>IA para Creativos y No Creativos</h3>
+      <p>Canal YouTube · Comunidad digital</p>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACTO -->
+<section id="contacto">
+  <p class="seccion-eyebrow">Hablemos</p>
+  <h2 class="seccion-titulo">Contacto</h2>
+  <div class="contacto-grid">
+    <div class="contacto-intro">
+      <p>¿Tienes un proyecto en mente? Estoy disponible para consultoría, conferencias, talleres, colaboraciones académicas y proyectos de IA. Escríbeme y con gusto platicamos.</p>
+      <div class="contacto-dato">✉️ <a href="mailto:maestraclaudiamartinez@gmail.com">maestraclaudiamartinez@gmail.com</a></div>
+      <div class="contacto-dato">💼 <a href="https://linkedin.com/in/claudiamtzd" target="_blank">linkedin.com/in/claudiamtzd</a></div>
+      <div class="contacto-dato">▶️ <a href="https://www.youtube.com/@HablemosdeconClaudiaMartinez" target="_blank">Canal YouTube</a></div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-marca">
+    <h4>Claudia A. Martínez Díaz</h4>
+    <p>Diseñadora · Mercadóloga · Publicista<br>Investigadora · Docente · Estratega</p>
+  </div>
+  <div class="footer-inst">
+    <p>Cátedra Abierta · Claudia A. Martínez Díaz</p>
+    <p>UAQ · UVM · M&amp;D High Strategy Group · Signum Intelligence Unit</p>
+  </div>
+  <p class="footer-copy">© 2026 · Todos los derechos reservados · Contenido protegido</p>
+</footer>
+
+</body>
+</html>
